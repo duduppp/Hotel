@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TelevisionMapper">
+	
+	<!--表名 -->
+	<sql id="tableName">
+		TB_TELEVISION
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		SOURCEPATH,	
+		NAME,	
+		LOGINNAME,	
+		STATUS,
+		TELEVISION_ID
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{SOURCEPATH},	
+		#{NAME},	
+		#{LOGINNAME},	
+		#{STATUS},	
+		#{TELEVISION_ID}
+	</sql>
+	
+	<!-- 新增-->
+	<insert id="save" parameterType="pd">
+		insert into 
+	<include refid="tableName"></include>
+		(
+	<include refid="Field"></include>
+		) values (
+	<include refid="FieldValue"></include>
+		)
+	</insert>
+	
+	<!-- 删除-->
+	<delete id="delete" parameterType="pd">
+		delete from
+		<include refid="tableName"></include>
+		where 
+			TELEVISION_ID = #{TELEVISION_ID}
+	</delete>
+	
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		set 
+			SOURCEPATH = #{SOURCEPATH},
+			NAME = #{NAME},
+			LOGINNAME = #{LOGINNAME},
+			STATUS=#{STATUS},
+		TELEVISION_ID = TELEVISION_ID
+		where 
+		TELEVISION_ID = #{TELEVISION_ID}
+	</update>
+	
+	<!-- 通过ID获取数据 -->
+	<select id="findById" parameterType="pd" resultType="pd">
+		select 
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 
+			TELEVISION_ID = #{TELEVISION_ID}
+	</select>
+	
+	<!-- 列表 -->
+	<select id="datalistPage" parameterType="page" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 1=1
+		<if test="pd.STATUS!= null and pd.STATUS != '' and pd.STATUS!='全部'"><!-- 检索 -->
+		and STATUS = #{pd.STATUS}
+		</if>
+	</select>
+	
+	<!-- 列表(全部) -->
+	<select id="listAll" parameterType="pd" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		 where 1=1
+		<if test="STATUS!= null and STATUS != '' and STATUS!='全部'"><!-- 检索 -->
+		 and STATUS = #{STATUS} 
+		</if>
+	</select>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteAll" parameterType="String">
+		delete from
+		<include refid="tableName"></include>
+		where 
+			TELEVISION_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+                 #{item}
+		</foreach>
+	</delete>
+	
+</mapper>

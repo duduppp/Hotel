@@ -1,0 +1,141 @@
+/**
+布局样式
+**/
+.inner{padding: 0 40px;}
+.todaytip{padding:0 40px}
+:-webkit-full-screen .container{border:none;padding:15px 0;}
+:-moz-full-screen .container{border:none;padding:15px 0;}
+:-ms-fullscreen .container{border:none;padding:15px 0;}
+:full-screen .container{border:none;padding:15px 0;}
+:fullscreen .container{border:none;padding:15px 0;}
+/**弹幕样式**/
+.barrage{position:absolute;z-Index:1000;border:2px solid #2D68EE;line-height:36px;padding:0 1.5em;border-radius:18px;background:rgba(0,0,0,.5);font-size:18px;white-space:nowrap;color:#fff;}
+.barrage2{position:absolute;z-Index:1000;border:2px solid #E43FE4;line-height:36px;padding:0 1.5em;border-radius:18px;background:rgba(0,0,0,.5);font-size:18px;white-space:nowrap;color:#fff;}
+.barrage3{position:absolute;z-Index:1000;border:2px solid #35E688;line-height:36px;padding:0 1.5em;border-radius:18px;background:rgba(0,0,0,.5);font-size:18px;white-space:nowrap;color:#fff;}
+.barrage4{position:absolute;z-Index:1000;border:2px solid #97DD44;line-height:36px;padding:0 1.5em;border-radius:18px;background:rgba(0,0,0,.5);font-size:18px;white-space:nowrap;color:#fff;}
+/**
+	酒店名称样式
+**/
+.theme-hname{font-size:26px;color:#fff;font-weight:bold;}
+/**
+   酒店电话样式
+**/
+.theme-telphone{font-size:22px;color:#fff;font-weight:bold;}
+/**
+酒店logo样式
+**/
+.theme-logo{}
+/**
+酒店城市名称样式
+**/
+.theme-city{color:#fff;font-size:16px;}
+/**
+三天天气样式
+**/
+.weather-item{display:inline-block;width:90px;margin:0 8px;color:#000;font-size:12px;line-height:20px;text-align:center;vertical-align:top;}
+.weather-item img{margin:4px 0;}
+/**
+pm25样式
+**/
+.weather-air{display:inline-block;margin:0 8px;color:#000;font-size:16px;line-height:32px;text-align:center;vertical-align:top;}
+.air-pm{display:inline-block;margin-right:4px;color:#000;padding:3px;line-height:14px;vertical-align:middle;font-size:10px;border-radius:3px;}
+/**
+bottom字体颜色
+**/
+.b-inner{color:#fff;}
+/**
+酒店城市天气样式
+**/
+.theme-weather{color:#fff;font-size:16px;}
+/**
+酒店城市PM2.5样式
+**/
+.theme-pm25{color:#fff;font-size:16px;}
+/**
+酒店房价表头背景样式
+**/
+.theme-headtype{background-image:url(../zc_resource/images/yp_03.png);border-bottom:1px solid #7F5C36;}
+/**
+房价表“房型”字段样式
+**/
+.theme-headname{text-align:center;font-size:32px;font-weight:bold;color:#fff;}
+/**
+房价表表头其他字段样式
+**/
+.theme-headitem{text-align:center;font-size:32px;font-weight:bold;color:#fff;}
+/**
+房价信息隔行背景样式
+**/
+.theme-rmtype{
+	/*background:-webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(236,220,205,.7)),color-stop(0.2,rgba(236,220,205,.7)),color-stop(0.2,rgba(242,238,235,.7)),color-stop(0.4,rgba(242,238,235,.7)),color-stop(0.4,rgba(236,220,205,.7)),color-stop(0.6,rgba(236,220,205,.7)),color-stop(0.6,rgba(242,238,235,.7)),color-stop(0.8,rgba(242,238,235,.7)),color-stop(0.8,rgba(236,220,205,.7)),color-stop(1,rgba(236,220,205,.7)));
+	background:-moz-linear-gradient(top,rgba(236,220,205,.7), rgba(236,220,205,.7) 20%,rgba(242,238,235,.7) 20%,rgba(242,238,235,.7) 40%,rgba(236,220,205,.7) 40%,rgba(236,220,205,.7) 60%,rgba(242,238,235,.7) 60%, rgba(242,238,235,.7) 80%,rgba(236,220,205,.7) 80%,rgba(236,220,205,.7));
+	background:-webkit-linear-gradient(top,rgba(236,220,205,.7),rgba(236,220,205,.7) 14.285%,rgba(242,238,235,.7) 14.285%,rgba(242,238,235,.7) 28.57%,rgba(236,220,205,.7) 28.57%,rgba(236,220,205,.7) 42.774%,rgba(242,238,235,.7) 42.774%,rgba(242,238,235,.7) 57.14%,rgba(236,220,205,.7) 57.14%,rgba(236,220,205,.7) 71.29%,rgba(242,238,235,.7) 71.29%,rgba(242,238,235,.7) 85.71%,rgba(236,220,205,.7) 85.71%,rgba(236,220,205,.7));
+	*/
+	background-size:100% 25%;
+	background-color:#EBDCCD;
+	background-image:-webkit-linear-gradient(top,#F1EEEA 50%,transparent 50%,transparent);
+	background-image:-moz-linear-gradient(top,#F1EEEA 50%,transparent 50%,transparent);
+	background-image:-o-linear-gradient(top,#F1EEEA 50%,transparent 50%,transparent);
+	background-image:-ms-linear-gradient(top,#F1EEEA 50%,transparent 50%,transparent);
+	
+}
+/**
+房价表“房型名称”字段样式
+**/
+.theme-pricename{text-align:center;font-size:30px;font-weight:normal;color: #8C6428;}
+/**
+房价表价格其他字段样式
+**/
+.theme-priceitem{text-align:center;font-size:30px;font-weight:normal;color: #8C6428;}
+/**
+轮播图片容器背景颜色样式
+**/
+.theme-picbg{background:#000000;}
+/**
+轮播图片平铺还是repeat
+**/
+.theme-picitem{background-position:center; background-size:auto 100%; background-repeat:no-repeat;}
+/**
+时钟容器背景色
+**/
+.theme-timebg{background:#1B1714;}
+/**
+时钟时间样式
+**/
+.theme-hour{font-size:45px;color:#A35400;line-height:45px;vertical-align:top;}
+/**
+时钟星期样式
+**/
+.theme-week{font-size:45px;color:#A35400;line-height:45px;vertical-align:top;}
+/**
+时钟时间-日期的对齐方式
+**/
+.p-date{text-align:center;}
+/**
+时钟日期样式
+**/
+.theme-date{font-size:24px;color:#A35400;text-align:center;line-height:35px;}
+/**
+备注信息样式
+**/
+.theme-tip{font-size:27px;color:#a35400;}
+/**
+按钮的样式
+**/
+.b-btn{cursor:pointer;background:#d9b186;color:#a35400;padding:0 12px;border-radius:5px;border:none;outline:none;vertical-align:middle; font-size: 12px; display: inline-block; height: 32px; line-height: 32px}
+.b-btn:HOVER{text-decoration: none; color: #a35400}
+/**
+select样式
+**/
+.b-select{width:90px;border:1px solid #fff;color:#fff;border-radius:5px;background:transparent;height:32px;vertical-align:middle;outline:none;}
+/**
+input text样式
+**/
+.b-text{color:#fff;border:1px solid #fff;border-radius:5px;width:80px;text-align:center;background:transparent;height:32px;vertical-align:middle;outline:none;}
+/**
+弹幕开关样式
+**/
+.baronoff{display:inline-block;width:50px;height:28px;vertical-align:middle;border:1px solid transparent;background:#1B1714;position:relative;border-radius:14px;}
+.barblock{position:absolute;cursor:pointer;z-Index:100;top:0;width:26px;height:26px;border-radius:50%;font-size:13px;line-height:26px;text-align:center;transition:all 0.4s;-webkit-transition:all 0.4s;-moz-transition:all 0.4s;-o-transition:all 0.4s;-ms-transition:all 0.4s;}
+.baroff{left:0;background:#777777;color:#38393A;}
+.baron{left:24px;background:#d9b186;color:#a35400;}

@@ -1,0 +1,80 @@
+
+.mw-container{
+	display:block;
+	background:#fff;
+	position:absolute;
+	border:none;
+	box-shadow:none;
+	z-Index:10000;
+	overflow:hidden;
+	left:0;
+	top:0;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	user-select:none;
+	font-family: "\5FAE\8F6F\96C5\9ED1";
+}
+button::-moz-focus-inner,input[type=reset]::-moz-focus-inner,input[type=button]::-moz-focus-inner,input[type=submit]::-moz-focus-inner,input[type=file]>input[type=button]::-moz-focus-inner{border:0;padding:0;cursor:pointer;}
+.m-m-canvas{
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	user-select:none;
+}
+.mw-tlt{
+	background:#0198E7 !important;
+	width:100%;
+	height:30px;
+	font-size:16px;
+	line-height:30px;
+	padding:8px 0;
+	position:relative;
+	border-bottom:1px solid #bababa;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	user-select:none;
+	box-sizing:content-box !important;
+	-webkit-box-sizing:content-box !important;
+	-moz-box-sizing:content-box !important;
+	
+}
+.mw-tltcon{
+	display:inline-block;
+	margin-left:15px;
+	font-size:16px;
+	font-weight: 500;
+	color:#fff;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	user-select:none;
+}
+.mw-content{
+	background:#fff;
+	width:100%;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	user-select:none;
+	overflow:auto;
+	/* overflow:hidden; IE9�¿��auto�Ǽ�overflow��hidden���аٷְٿ�ȵ�bug*/
+}
+.mw-cls{
+	position:absolute;
+	display:inline-block;
+	right:5px;
+	top:5px;
+	margin-right:5px;
+	font-size:28px;
+	font-weight:bolder;
+	cursor:pointer;
+	color:#fff;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	user-select:none;
+
+}
+
+.mw-btn-cont{padding:10px 20px;text-align:right;}
+.mw-okicon{background:url(../images/mwok.png) center no-repeat;display:inline-block;width:28px;height:28px;vertical-align:middle;margin-right:8px;}
+.mw-erroricon{background:url(../images/mwerror.png) center no-repeat;display:inline-block;width:28px;height:28px;vertical-align:middle;margin-right:8px;}
+.mw-infoicon{background:url(../images/mwinfo.png) center no-repeat;display:inline-block;width:28px;height:28px;vertical-align:middle;margin-right:8px;}
+.mw-noicon{background:none;display:inline-block;width:0px;height:28px;vertical-align:middle;}
+.mw-cancel-btn{margin-left:12px;}

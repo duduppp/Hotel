@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="WaremessageMapper">
+	
+	<!--表名 -->
+	<sql id="tableName">
+		TB_WAREMESSAGE
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		WAREID,	
+		WARENAME,	
+		STANDARD,	
+		UNIT,	
+		RATE,	
+		WARE_BARCODE,	
+		VIPPRICE,	
+		SHOPPINGPRICE,	
+		STOCK,	
+		STOCKPRICE,	
+		ARTNO,	
+		WARESTYPES,	
+		SUPPLIER,	
+		PRODUCTDATE,	
+		QUALITYDATE,	
+		REMARK,
+		PINYIN,
+		INTEGRAL_STATUS,
+		DISCOUNT_STATUS,
+		CONSUM_AMOUNT,
+		WAREMESSAGE_ID
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{WAREID},	
+		#{WARENAME},	
+		#{STANDARD},	
+		#{UNIT},	
+		#{RATE},	
+		#{WARE_BARCODE},	
+		#{VIPPRICE},	
+		#{SHOPPINGPRICE},	
+		#{STOCK},	
+		#{STOCKPRICE},	
+		#{ARTNO},	
+		#{WARESTYPES},	
+		#{SUPPLIER},	
+		#{PRODUCTDATE},	
+		#{QUALITYDATE},	
+		#{REMARK},
+		#{PINYIN},	
+		#{INTEGRAL_STATUS},
+		#{DISCOUNT_STATUS},
+		#{CONSUM_AMOUNT},
+		#{WAREMESSAGE_ID}
+	</sql>
+	
+	<!-- 新增-->
+	<insert id="save" parameterType="pd">
+		insert into 
+	<include refid="tableName"></include>
+		(
+	<include refid="Field"></include>
+		) values (
+	<include refid="FieldValue"></include>
+		)
+	</insert>
+		
+	<!-- 删除-->
+	<delete id="delete" parameterType="pd">
+		delete from
+		<include refid="tableName"></include>
+		where 
+			WAREMESSAGE_ID = #{WAREMESSAGE_ID}
+	</delete>
+	
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		set 
+			WAREID = #{WAREID},
+			WARENAME = #{WARENAME},
+			STANDARD = #{STANDARD},
+			UNIT = #{UNIT},
+			RATE = #{RATE},
+			WARE_BARCODE = #{WARE_BARCODE},
+			VIPPRICE = #{VIPPRICE},
+			SHOPPINGPRICE = #{SHOPPINGPRICE},
+			STOCK = #{STOCK},
+			STOCKPRICE = #{STOCKPRICE},
+			ARTNO = #{ARTNO},
+			WARESTYPES = #{WARESTYPES},
+			SUPPLIER = #{SUPPLIER},
+			PRODUCTDATE = #{PRODUCTDATE},
+			QUALITYDATE = #{QUALITYDATE},
+			REMARK=#{REMARK},
+			PINYIN=#{PINYIN},	
+			INTEGRAL_STATUS=#{INTEGRAL_STATUS},
+			DISCOUNT_STATUS=#{DISCOUNT_STATUS},
+			CONSUM_AMOUNT=#{CONSUM_AMOUNT},
+		WAREMESSAGE_ID = WAREMESSAGE_ID
+		where 
+		WAREMESSAGE_ID = #{WAREMESSAGE_ID}
+	</update>
+	
+	<!-- 通过ID获取数据 -->
+	<select id="findById" parameterType="pd" resultType="pd">
+		select 
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 
+			WAREMESSAGE_ID = #{WAREMESSAGE_ID}
+	</select>
+	<!-- 通过ID获取数据 -->
+	<select id="findByWARE_BARCODE" parameterType="pd" resultType="pd">
+		select 
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 
+			WARE_BARCODE = #{WARE_BARCODE}
+	</select>
+	<select id="findWare" parameterType="pd" resultType="pd">
+		select 
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 1=1
+		 <if test="WARE_BARCODE != null and WARE_BARCODE != '' "><!-- 关键词检索 -->
+			and WARE_BARCODE  LIKE  CONCAT(CONCAT('%', #{WARE_BARCODE}),'%')
+		 </if>
+		
+		 <if test="WARENAME != null and WARENAME != '' "><!-- 关键词检索 -->
+			and WARENAME  LIKE  CONCAT(CONCAT('%', #{WARENAME}),'%')
+		</if>
+		
+		 <if test="PINYIN !=null and PINYIN !=''"><!-- 关键词检索 -->
+			and PINYIN  LIKE  CONCAT(CONCAT('%', #{PINYIN}),'%')
+		</if> 
+	</select>
+	<!-- 列表 -->
+	<select id="datalistPage" parameterType="page" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 1=1
+		<if test="pd.queryName!= null and pd.queryName != ''"><!-- 关键词检索 -->
+			and
+				${pd.queryName} LIKE CONCAT(CONCAT('%', #{pd.queryValue}),'%')
+		</if>
+		order by  WAREMESSAGE_ID desc
+	</select>
+	
+	<select id="warnlistPage" parameterType="page" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 1=1
+		<if test="pd.STOCK !=null and pd.STOCK !=''"><!-- 关键词检索 -->
+			and
+				 STOCK &lt; #{pd.STOCK}
+		</if>
+		<if test="pd.dayValue !=null and pd.dayValue != ''"><!-- 关键词检索 -->
+			and
+				TIMESTAMPDIFF(DAY,PRODUCTDATE,QUALITYDATE) &lt; #{pd.dayValue}
+		</if>   	
+		
+		order by  WAREMESSAGE_ID desc
+	</select>
+	
+	
+	<!-- 列表(全部) -->
+	<select id="listAll" parameterType="pd" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 1=1
+		<if test="pd.queryName!= null and pd.queryName != ''"><!-- 关键词检索 -->
+		and
+			#{pd.queryName} LIKE CONCAT(CONCAT('%', #{pd.queryValue}),'%')
+				 
+		</if>
+	</select>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteAll" parameterType="String">
+		delete from
+		<include refid="tableName"></include>
+		where 
+			WAREMESSAGE_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+                 #{item}
+		</foreach>
+	</delete>
+	
+</mapper>

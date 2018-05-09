@@ -1,0 +1,329 @@
+.tzCheckBox {
+	background: url('../images/user/background.gif')
+no-repeat right bottom;
+	display: inline-block;
+	min-width: 60px;
+	height: 33px;
+	white-space: nowrap;
+	position: relative;
+	cursor: pointer;
+	margin-left: 14px;
+}
+
+.tzCheckBox .checked {  
+	background-position:top left;
+	margin:0 14px 0 0;
+}
+.tzCheckBox .checked .tzCBContent{
+	text-align:left;
+	padding:0 0 0 38px;
+}
+.tzCheckBox .tzCBContent {
+	color: white;
+	line-height: 31px;
+	padding-right: 38px;
+	text-align: right;
+}
+.tzCheckBox .checked .tzCBPart{
+	background-position:top right;
+	left:auto;
+	right:-14px;
+}
+ 
+
+.tzCBPart {
+	background: url('../images/user/background.gif') no-repeat left bottom;
+	width: 14px;
+	position: absolute;
+	top: 0;
+	left: -14px;
+	height: 33px;
+	overflow: hidden;
+}
+ 
+
+body,html,blockquote,img,label,p,h1,h2,h3,h4,h5,h6,pre,ul,ol,li,dl,dt,dd,form,a,fieldset,input,th,i
+	{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	font-style: normal;
+	font-weight: normal;
+}
+
+body {
+	font-family: "Microsoft Yahei";
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+	background-color: #fff;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+img,a {
+	border: 0;
+	text-decoration: none;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	transition: all .3s ease-out;
+}
+
+a:hover {
+	color: #F00;
+	text-decoration: none;
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+
+.height2 {
+	height: 30px;
+}
+
+.state {
+	padding: 13px 0;
+	margin: 0px auto 10px auto;
+}
+
+.state dl {
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+
+.state dt {
+	padding: 4px 0;
+}
+
+#title2 {
+	top: 1px;
+	width: auto;
+	overflow: hidden;
+	height: 35px;
+	line-height: 35px;
+	background-image: -webkit-linear-gradient(bottom, #DEDAC6 3%, #FAF9F5 97%, #fff 100%);
+	border-bottom: 1px #fff solid;
+	position: fixed !important; /*FF IE7*/
+	position: absolute; /*IE6*/
+	width: 100%;
+	z-index: 9999;
+}
+
+#ftitle {
+	float: left;
+	display: block;
+	width: 76px;
+	height: 29px;
+	color: red;
+	font-weight: bold;
+	padding-left: 30px;
+	top: 0;
+}
+
+a:hover,a:focus {
+	text-decoration: underline;
+}
+
+.maincont {
+	position: relative;
+	top: 35px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.userName {
+	position: relative;
+	height: 160px;
+	background: url('../images/user/user01.png') left center no-repeat;
+}
+
+.names {
+	width: 280px;
+	padding: 23px 0;
+	margin: 0 auto;
+	height: 102px;
+}
+
+.user {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.userName {
+	position: relative;
+	height: 160px;
+	background: url('../images/user/user01.png') left center repeat-x;
+}
+
+.names {
+	width: 280px;
+	padding: 23px 0;
+	margin: 0 auto;
+	height: 102px;
+}
+
+.names dt {
+	float: left;
+	width: 60px;
+	height: 60px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	overflow: hidden;
+	border: #fff 1px solid;
+}
+
+.names dt img {
+	width: 60px;
+	height: 60px;
+}
+
+.names dd {
+	float: right;
+	width: 200px;
+	font-size: 1.4em;
+}
+
+.names dd h3 {
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	font-size: 1.2em;
+}
+
+.names dd a {
+	color: #ccc;
+}
+
+.shouyi {
+	padding: 7px 0;
+	height: 58px;
+	background: url('../images/user/tou.png');
+}
+
+.shouyi dl {
+	width: 50%;
+	float: left;
+	text-align: center;
+	color: #fff;
+	font-size: 1.2em;
+	border-right: #ccc 1px solid;
+}
+
+.userNav li {
+	position: relative;
+	height: 40px;
+	width: 100%;
+	padding-left: 35px;
+	font-size: 1.3rem;
+	background-color: #fff;
+	border-bottom: #ddd 1px solid;
+}
+
+.span1 {
+	position: absolute;
+	width: 20px;
+	left: 5px;
+	top: 12px;
+	color: #333;
+	font-size: 1.8rem;
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.span2 {
+	position: absolute;
+	width: 20px;
+	left: 5px;
+	top: 12px;
+	color: #333;
+	font-size: 1.8rem;
+}
+
+.lifont {
+	color: #333;
+	font: normal normal normal 14px/1 FontAwesome;
+}
+
+.lifont:hover {
+	color: #F00;
+	text-decoration: underline;
+}
+
+.glyphicon {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.userNav li a {
+	display: block;
+	line-height: 40px;
+	width: 100%;
+	padding-right: 10px;
+	background: url('../images/user/jian-new.png') right center no-repeat;
+}
+
+.lrSub {
+	padding: 20px 10px;
+}
+
+.lrSub input,.lrSub a {
+	display: block;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font-size: 1.6rem;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #f60;
+	color: #fff;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.height1 {
+	height: 60px;
+}
+
+.ui-loader-default{ display:none}  
+.ui-mobile-viewport{ border:none;}  
+.ui-page {padding: 0; margin: 0; outline: 0}   
+
+/*此样式在窗口小于1024的时候生效*/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+}
+/*此样式在窗口小于768的时候生效*/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+}
+/*此样式在窗口小于640的时候生效*/
+@media only screen and (max-width: 319px) {
+}
+
+/*此样式在窗口小于480的时候生效*/
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+}

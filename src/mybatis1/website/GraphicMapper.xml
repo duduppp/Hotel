@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GraphicMapper">
+	
+	<!--表名 -->
+	<sql id="tableName">
+		TB_GRAPHIC
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		CATALOG,	
+		SUBDIRECTORY,	
+		SUNCATALOGUE,	
+		INPUTDATE,	
+		NAME,	
+		CONTENT,	
+		TITLE,	
+		BRIEF_INTRODUCTION,	
+		IMGPATH,	
+		SHOWSTATUS,	
+		SORT_NO,	
+		CATALOG_NAME,	
+		SUBDIRECTORY_NAME,	
+		SUNCATALOGUE_NAME,	
+		GRAPHIC_ID
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{CATALOG},	
+		#{SUBDIRECTORY},	
+		#{SUNCATALOGUE},	
+		#{INPUTDATE},	
+		#{NAME},	
+		#{CONTENT},	
+		#{TITLE},	
+		#{BRIEF_INTRODUCTION},	
+		#{IMGPATH},	
+		#{SHOWSTATUS},	
+		#{SORT_NO},	
+		#{CATALOG_NAME},	
+		#{SUBDIRECTORY_NAME},	
+		#{SUNCATALOGUE_NAME},	
+		#{GRAPHIC_ID}
+	</sql>
+	
+	<!-- 新增-->
+	<insert id="save" parameterType="pd">
+		insert into 
+	<include refid="tableName"></include>
+		(
+	<include refid="Field"></include>
+		) values (
+	<include refid="FieldValue"></include>
+		)
+	</insert>
+	
+	<!-- 删除-->
+	<delete id="delete" parameterType="pd">
+		delete from
+		<include refid="tableName"></include>
+		where 
+			GRAPHIC_ID = #{GRAPHIC_ID}
+	</delete>
+	
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		set 
+			CATALOG = #{CATALOG},
+			SUBDIRECTORY = #{SUBDIRECTORY},
+			SUNCATALOGUE = #{SUNCATALOGUE},
+			INPUTDATE = #{INPUTDATE},
+			NAME = #{NAME},
+			CONTENT = #{CONTENT},
+			TITLE = #{TITLE},
+			BRIEF_INTRODUCTION = #{BRIEF_INTRODUCTION},
+			IMGPATH = #{IMGPATH},
+			SHOWSTATUS = #{SHOWSTATUS},
+			SORT_NO = #{SORT_NO},
+			CATALOG_NAME = #{CATALOG_NAME},
+			SUBDIRECTORY_NAME = #{SUBDIRECTORY_NAME},
+			SUNCATALOGUE_NAME = #{SUNCATALOGUE_NAME},
+		GRAPHIC_ID = GRAPHIC_ID
+		where 
+		GRAPHIC_ID = #{GRAPHIC_ID}
+	</update>
+	
+	<!-- 通过ID获取数据 -->
+	<select id="findById" parameterType="pd" resultType="pd">
+		select 
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 
+			GRAPHIC_ID = #{GRAPHIC_ID}
+	</select>
+	
+	<!-- 列表 -->
+	<select id="datalistPage" parameterType="page" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 1=1
+		 <if test="pd.keywords!= null and pd.keywords != ''"><!-- 关键词检索 -->
+		  and
+		 </if>
+		 <if test="pd.CATALOG_NAME!= null and pd.CATALOG_NAME != ''">
+			and  CATALOG_NAME = #{pd.CATALOG_NAME}   
+		 </if>
+		<if test="pd.SUBDIRECTORY_NAME!= null and pd.SUBDIRECTORY_NAME != ''">
+			and  SUBDIRECTORY_NAME = #{pd.SUBDIRECTORY_NAME}   
+		 </if>
+		 <if test="pd.SUNCATALOGUE_NAME!= null and pd.SUNCATALOGUE_NAME != ''">
+			and  SUNCATALOGUE_NAME = #{pd.SUNCATALOGUE_NAME}   
+		 </if>
+		  <if test="pd.SHOWSTATUS!= null and pd.SHOWSTATUS != ''">
+			and  SHOWSTATUS = #{pd.SHOWSTATUS}    
+		 </if>	
+		 <if test="pd.INPUTDATE!= null and pd.INPUTDATE != ''">
+			and  INPUTDATE = #{pd.INPUTDATE}    
+		 </if>
+		   <if test="pd.NAME!= null and pd.NAME!= ''">
+			and  NAME = #{pd.NAME}    
+		 </if>		
+			and  SHOWSTATUS = 1  	
+			 order by INPUTDATE desc
+		 
+	</select>
+	
+	<!-- 列表(全部) -->
+	<select id="listAll" parameterType="pd" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+	</select>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteAll" parameterType="String">
+		delete from
+		<include refid="tableName"></include>
+		where 
+			GRAPHIC_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+                 #{item}
+		</foreach>
+	</delete>
+	
+	<select id="findByTypes" parameterType="pd" resultType="pd">
+		select 
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 
+			CATALOG_NAME = #{CATALOG_NAME} AND 
+			SUBDIRECTORY_NAME = #{SUBDIRECTORY_NAME} AND 
+			SUNCATALOGUE_NAME = #{SUNCATALOGUE_NAME} AND 
+			SHOWSTATUS = 1  
+			order by INPUTDATE desc
+	</select>
+		<!-- 列表 -->
+	<select id="findByPage" parameterType="page" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where   
+			CATALOG_NAME = #{pd.CATALOG_NAME} AND 
+			SUBDIRECTORY_NAME = #{pd.SUBDIRECTORY_NAME} AND 
+			SUNCATALOGUE_NAME = #{pd.SUNCATALOGUE_NAME} AND 
+			 SHOWSTATUS = 1  	
+			 order by INPUTDATE desc
+	 
+	</select>
+	
+</mapper>

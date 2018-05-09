@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+.evenRow {
+	background-color: #F7FDEA;
+}
+
+.oddRow {
+	background-color: #FFFFFF;
+}
+
+.activeRow {
+	background-color: #FFFF99;
+}
+
+.clickRow {
+	background-color: #FAFAD2;
+}
+    

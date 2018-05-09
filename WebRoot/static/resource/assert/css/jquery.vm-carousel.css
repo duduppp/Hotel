@@ -1,0 +1,58 @@
+
+/* ========================================================================= *\
+    vmcarousel plugin
+\* ========================================================================= */
+.centerImg{
+ 
+	z-index: 0;
+	position:relative;
+	left:0px;  
+	top:-135px; 
+}
+
+.vmc-container{position: relative;}
+.vmc-viewport{overflow: hidden;}
+
+.vmcarousel{list-style-type: none; padding: 0; margin-top:10px; width: 1000%;}
+.vmcarousel:after{content: ''; display: table; clear: both;}
+.vmcarousel > li{float: left;width:410px;}
+.vmcarousel > li img{ display: block; margin: 0 auto; max-width: 100%;}
+
+.vmc-container.hide-controls .vmc-arrow-left, .vmc-container.hide-controls .vmc-arrow-right{display: none;}
+
+.vmc-arrow-left {
+     position: absolute; top:30%; left: 130px; width: 35px; height: 80px;    
+     background:url(../../images1/arrow-left.png) no-repeat ;  
+  	 cursor:pointer; 
+  	 opacity:0;
+	 filter:alpha(opacity=0);
+  
+}
+.vmc-arrow-right{
+    position: absolute; top:30%;  width: 35px; height: 80px;    
+    background:url(../../images1/arrow-right.png) no-repeat ; opacity:0;
+     cursor:pointer; 
+ 	filter:alpha(opacity=0); 
+} 
+.vmc-arrow-right{left: auto; right: 120px;}
+.vmc-container:hover .vmc-arrow-left, .vmc-container:hover .vmc-arrow-right{opacity: 1;}
+
+.vmc-arrow-left:after {
+	cursor:pointer; 
+   	opacity:1;
+	filter:alpha(opacity=1);
+	border: 1 solid #000;
+}
+.vmc-arrow-right:after{
+    cursor:pointer; 
+   	opacity:1;
+	filter:alpha(opacity=1);
+	border: 1 solid #000;
+}
+.vmc-arrow-left:hover:after, .vmc-arrow-right:hover:after{color: white;}
+.vmc-arrow-left:after{}
+.vmc-arrow-right:after{}
+
+.vmc-container img[src$=".svg"]{width: 100% !important; height: auto !important; max-height: 100%;}
+
+.notransition{-webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; -ms-transition: none !important; transition: none !important;}
